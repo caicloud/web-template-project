@@ -1,0 +1,6 @@
+.DS_Store
+.idea
+.history
+dump.rdb
+node_modules
+yarn-error.log
