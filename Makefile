@@ -25,12 +25,18 @@
 VERSION ?= $(shell git describe --tags --always --dirty)
 
 # Available cpus for compiling, please refer to https://github.com/caicloud/engineering/issues/8186#issuecomment-518656946 for more information.
-CPUS ?= $(shell bash build/read_cpus_available.sh)
+CPUS ?= $(shell bash scripts/read_cpus_available.sh)
 
 # Container REGISTRY.
 REGISTRY ?= cargo.dev.caicloud.xyz/release
 
 BUILD_ENV ?= local
+
+# cache_folder for yarn (default folder: https://github.com/caicloud/cyclone/blob/master/pkg/server/biz/accelerator/accelerate.go#L72)
+YARN_CACHE_DIR ?= /root/.npm
+
+# Track code version with Docker Label.
+DOCKER_LABELS ?= git-describe="$(shell date -u +v%Y%m%d)-$(shell git describe --tags --always --dirty)"
 
 # image prefix and suffix added to targets.
 # The final built images are:
@@ -54,21 +60,30 @@ BUILD_DIR := ./build
 #
 
 # All targets.
-.PHONY: build-local build container push
+.PHONY: build container push lint test install
 
-build-local:
+# install node_modules with cache
+install:
+	sh -c 'yarn --cache-folder $(YARN_CACHE_DIR)'
+
+lint:
+	sh -c 'yarn lint'
+
+test:
+	sh -c 'yarn test'
+
+build:
 	@for target in $(TARGETS); do                                                     \
 	  bash -c 'set -ex &&                                                             \
 	    yarn &&                                                                       \
 	    CPUS=$(CPUS) yarn run build';                                                 \
 	done
 
-build: build-local
-
-container: build-local
+container: build
 	@for target in $(TARGETS); do                                                     \
 	  image=$(IMAGE_PREFIX)$${target}$(IMAGE_SUFFIX);                                 \
 	  docker build -t $(REGISTRY)/$${image}:$(VERSION)                                \
+	    --label $(DOCKER_LABELS)                                                      \
 	    -f $(BUILD_DIR)/$${target}/Dockerfile .;                                      \
 	  if [ $(BUILD_ENV) == local ]; then                                              \
 	    docker image prune --filter label="stage=web_cacher";                         \

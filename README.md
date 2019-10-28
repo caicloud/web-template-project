@@ -47,12 +47,15 @@ The template project is in alpha status.
 ├── OWNERS
 ├── README.md
 ├── build
-│   ├── read_cpus_available.sh
 │   └── x-web
 │       └── Dockerfile
 ├── docs
-└── release
-    └── x-web.yaml
+├── package.json
+├── release
+│   └── x-web.yaml
+├── scripts
+│   └── read_cpus_available.sh
+└── yarn.lock
 ```
 
 A brief description of the layout:
@@ -66,3 +69,4 @@ A brief description of the layout:
 - `build` contains scripts, yaml files, dockerfiles, etc, to build and package the project.
 - `docs` for project documentations.
 - `release` [chart](https://github.com/caicloud/charts) for production deployment.
+- `scripts` shell scripts for extra works

@@ -3,7 +3,7 @@ FROM cargo.caicloud.xyz/devops_release/modularize-web-base:v0.6.0 as web_cacher
 LABEL stage=web_cacher
 COPY . /usr/app/
 WORKDIR /usr/app
-RUN yarn config set cache-folder /yarn/.cache && yarn install --production
+RUN yarn install --production --cache-folder /yarn/.cache
 
 FROM cargo.caicloud.xyz/library/node:10.16-stretch
 COPY --from=web_cacher /usr/app /usr/app
