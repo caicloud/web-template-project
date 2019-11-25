@@ -6,7 +6,7 @@ WORKDIR /usr/app
 RUN yarn install --production --cache-folder /yarn/.cache
 
 FROM cargo.caicloud.xyz/library/node:10.16-stretch
-COPY --from=web_cacher /usr/app /usr/app
+COPY ./dist /usr/app
 WORKDIR /usr/app
 
-CMD ["npm", "run", "start"]
+CMD ["node", "server.js"]

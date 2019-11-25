@@ -3,5 +3,54 @@
   "version": "0.0.1",
   "description": "a web project",
   "main": "index.js",
-  "repository": "git@github.com:caicloud/web-template-project.git"
+  "repository": "git@github.com:caicloud/web-template-project.git",
+  "author": "caicloud",
+  "license": "MIT",
+  "scripts": {
+    "watch:app": "webpack-dev-server --config webpack.app.config.js",
+    "watch": "webpack-dev-server --config webpack.module.config.js",
+    "build:app": "NODE_ENV=production webpack --config webpack.app.config.js",
+    "build": "NODE_ENV=production webpack --config webpack.module.config.js"
+  },
+  "devDependencies": {
+    "@apollo/react-hooks": "^3.1.2",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/preset-typescript": "^7.3.3",
+    "@caicloud/modularize": "0.5.1-bridge.0",
+    "@types/koa": "^2.0.50",
+    "antd": "^3.20.7",
+    "apollo-cache-inmemory": "^1.6.3",
+    "apollo-client": "^2.1.0",
+    "apollo-link-http": "^1.5.16",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "1.0.1",
+    "css-loader": "^3.1.0",
+    "graphql": "^14.5.8",
+    "graphql-tag": "^2.10.1",
+    "html-webpack-plugin": "^3.2.0",
+    "koa-logger": "^3.2.1",
+    "koa-mount": "^4.0.0",
+    "koa-send": "^5.0.0",
+    "koa-static": "^5.0.0",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "react": "^16.8.6",
+    "react-apollo": "2.1.9",
+    "react-dom": "^16.8.6",
+    "react-loadable": "^5.5.0",
+    "react-router": "3",
+    "style-loader": "^0.23.1",
+    "webpack": "4.30.0",
+    "webpack-cli": "3.3.1",
+    "webpack-dev-server": "^3.7.2"
+  },
+  "m12n": {
+    "moduleName": "x",
+    "port": 3002
+  },
+  "webpack": {
+    "publicPath": "/build/"
+  }
 }

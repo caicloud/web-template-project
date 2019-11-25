@@ -4,3 +4,4 @@
 dump.rdb
 node_modules
 yarn-error.log
+dist

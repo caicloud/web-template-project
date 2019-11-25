@@ -27,6 +27,12 @@ This Template
 
 The template project is in alpha status.
 
+### TODO
+
+- lint
+- git hooks
+- tests
+
 ## See also
 
 - [nirvana project template](https://github.com/caicloud/nirvana-template-project)
@@ -34,6 +40,32 @@ The template project is in alpha status.
 - [golang project template](https://github.com/caicloud/golang-template-project)
 
 ## Getting started
+
+### Install
+
+```bash
+yarn
+```
+
+### Run dev-server
+
+```bash
+yarn watch
+```
+
+By default, webpack-dev-server listens to the `m12n.port` in `package.json`
+
+### Build image
+
+TBD.
+
+### Run container
+
+```bash
+docker run -p <port>:3000 cargo.dev.caicloud.xyz/release/x-web:<VERSION> 
+```
+
+`port` MUST be one of endpoint-ports of modularize-web. 
 
 ### Layout
 
@@ -53,6 +85,11 @@ The template project is in alpha status.
 ├── package.json
 ├── release
 │   └── x-web.yaml
+├── client
+│   ├── components
+│   ├── menus
+│   └── routes
+├── server
 ├── scripts
 │   └── read_cpus_available.sh
 └── yarn.lock
@@ -70,3 +107,5 @@ A brief description of the layout:
 - `docs` for project documentations.
 - `release` [chart](https://github.com/caicloud/charts) for production deployment.
 - `scripts` shell scripts for extra works
+- `client` for client side codes.
+- `server` for server side codes, if any.
