@@ -1,6 +1,6 @@
 export default {
   resources_center: {
-    group: 'resources',
+    group: 'x-web',
     children: {
       'cluster': {
         text: 'cluster',

@@ -28,7 +28,7 @@ module.exports = [{
   },
   devtool: 'sourcemap',
   entry: {
-    [moduleName]: path.join(__dirname, './client/index.js'),
+    [moduleName]: path.join(__dirname, './client/module.js'),
   },
   output: {
     publicPath,

@@ -47,8 +47,8 @@
     "webpack-dev-server": "^3.7.2"
   },
   "m12n": {
-    "moduleName": "x",
-    "port": 3002
+    "moduleName": "x-web",
+    "port": 3030
   },
   "webpack": {
     "publicPath": "/build/"
