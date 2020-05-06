@@ -777,10 +777,10 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@caicloud/modularize@0.5.1-bridge.0":
-  version "0.5.1-bridge.0"
-  resolved "http://npm.caicloud.xyz/@caicloud%2fmodularize/-/modularize-0.5.1-bridge.0.tgz#543c85b7abf4cfda1dbf613ea87ac228f421d426"
-  integrity sha512-FrMKTRpFQPYNKb1UubJptH8rWyXs2jeV/C/B1VWEcO5E1P9WDB9tzAG/Jk/759oXvcmtTFXBRuP+oTxuwpMXEA==
+"@caicloud/modularize@0.6.0-alpha.0":
+  version "0.6.0-alpha.0"
+  resolved "http://npm.caicloud.xyz/@caicloud%2fmodularize/-/modularize-0.6.0-alpha.0.tgz#79eb6655e24307ce774d29803155b9c8be49e7d0"
+  integrity sha512-oUZP66jFH3iZDExCPSdyDEuuzANSxFKLJIA0LMoCwC9RdsHUohxBYPTo96wdWRHACq2fw9ZWh0eAic7YtRNYig==
   dependencies:
     chalk "^2.4.2"
     clean-webpack-plugin "^1.0.0"

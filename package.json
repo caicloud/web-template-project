@@ -18,7 +18,7 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.3.3",
-    "@caicloud/modularize": "0.5.1-bridge.0",
+    "@caicloud/modularize": "0.6.0-alpha.0",
     "@types/koa": "^2.0.50",
     "antd": "^3.20.7",
     "apollo-cache-inmemory": "^1.6.3",
